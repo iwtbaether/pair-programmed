@@ -5,14 +5,17 @@ import { SaveLoad } from "./features/SaveLoad/SaveLoad";
 import ShowStats from "./features/stats/ShowStats";
 import ResourceList from "./features/resources/ResourceList";
 import UpgradesList from "./features/upgrades/UpgradesList";
+import { UpgradeProvider } from "./features/upgrades/Upgrade-context";
 
 function App() {
   return (
     <div className="App">
-      <SaveLoad />
-      <ShowStats />
-      <ResourceList />
-      <UpgradesList />
+      <UpgradeProvider>
+        <SaveLoad />
+        <ShowStats />
+        <ResourceList />
+        <UpgradesList />
+      </UpgradeProvider>
     </div>
   );
 }

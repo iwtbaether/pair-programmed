@@ -35,7 +35,7 @@
       "gains": {
         "wood": {
           "type": "increased",
-          "ammount": 20
+          "ammount": 0.2
         }
       }
     },

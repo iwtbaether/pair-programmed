@@ -1,4 +1,4 @@
-import { GrowthTypes } from "../data/jsontypes";
+import { GainTypes, GrowthTypes } from "../data/jsontypes";
 
 interface GrowthParams {
   cost: number;
@@ -29,6 +29,36 @@ export default class MOIG {
 
       default:
         throw new Error(`Unknown growt type ${growthType}`);
+        break;
+    }
+  }
+
+  static getGains(
+    current: number,
+    gainRate: number,
+    ammount: number,
+    gainType: GainTypes
+  ): number {
+    switch (gainType) {
+      case "flat":
+      case "increased":
+        return this.flatGrowth({
+          cost: current,
+          growthRate: gainRate,
+          ammount,
+        });
+        break;
+
+      case "more":
+        return this.linearGrowth({
+          cost: current,
+          growthRate: gainRate,
+          ammount,
+        });
+        break;
+
+      default:
+        throw new Error(`Unexpected gainType ${gainType}`);
         break;
     }
   }

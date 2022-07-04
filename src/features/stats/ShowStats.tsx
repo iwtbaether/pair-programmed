@@ -8,7 +8,6 @@ export default function ShowStats() {
   const created = useAppSelector(selectAccountCreated);
   return (
     <FeatureWrapper>
-      {" "}
       <h1>Stats</h1>
       <p>Ticks: {ticks}</p>
       <p>Created: {new Date(created).toString()}</p>

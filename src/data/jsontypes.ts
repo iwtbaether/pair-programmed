@@ -47,4 +47,4 @@ export type {
   GrowthTypes,
   GainTypes,
 };
-export { createMaterialsStorage, upgrades, crafts };
+export { createMaterialsStorage, upgrades, crafts, materials };
