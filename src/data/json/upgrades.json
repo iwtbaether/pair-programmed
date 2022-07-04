@@ -1,34 +1,34 @@
 {
-    "plentifulWood": {
-      "name": "plentifulWood",
-      "resources": {
-        "wood": 1
-      },
-      "growth": {
-        "type": "linear",
-        "ammount": 0.5
-      },
-      "gains": {
-        "wood": {
-          "type": "increased",
-          "ammount": 0.2
-        }
-      }
+  "plentifulWood": {
+    "name": "plentifulWood",
+    "resources": {
+      "wood": 1
     },
-    "plentifulStone": {
-      "name": "plentifulStone",
-      "resources": {
-        "stone": 1
-      },
-      "growth": {
+    "growth": {
+      "type": "linear",
+      "ammount": 0.5
+    },
+    "gains": {
+      "wood": {
+        "type": "increased",
+        "ammount": 0.2
+      }
+    }
+  },
+  "plentifulStone": {
+    "name": "plentifulStone",
+    "resources": {
+      "stone": 1
+    },
+    "growth": {
+      "type": "flat",
+      "ammount": 20
+    },
+    "gains": {
+      "stone": {
         "type": "flat",
-        "ammount": 20
-      },
-      "gains": {
-        "stone": {
-          "type": "flat",
-          "ammount": 1
-        }
+        "ammount": 1
       }
     }
   }
+}

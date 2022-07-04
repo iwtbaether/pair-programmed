@@ -1,7 +1,7 @@
 import craftsJson from "./json/crafts.json";
-import resourcesJson from './json/resources.json';
-import unlocksJson from './json/unlocks.json';
-import upgradesJson from './json/upgrades.json';
+import resourcesJson from "./json/resources.json";
+import unlocksJson from "./json/unlocks.json";
+import upgradesJson from "./json/upgrades.json";
 
 const materials = resourcesJson as { [key in mats]: typeof resourcesJson[key] };
 

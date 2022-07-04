@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../../app/store";
-import { materials, mats, MatStorage,  } from "../../data/jsontypes";
+import { materials, mats, MatStorage } from "../../data/jsontypes";
 
 const createMaterialsStorage = (): MatStorage => {
   const obj: Record<string, any> = {};
