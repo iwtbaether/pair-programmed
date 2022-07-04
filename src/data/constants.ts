@@ -1,3 +1,3 @@
-const APP_STORAGE_KEY = 'pairProgrammed';
+const APP_STORAGE_KEY = "pairProgrammed";
 
-export { APP_STORAGE_KEY}
+export { APP_STORAGE_KEY };

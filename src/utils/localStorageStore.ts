@@ -1,8 +1,6 @@
 import { RootState } from "../app/store";
 import { APP_STORAGE_KEY } from "../data/constants";
-var merge = require('lodash.merge');
-
-
+var merge = require("lodash.merge");
 
 // localStorage.js
 export const loadState = () => {
@@ -32,7 +30,6 @@ export const saveState = (state: RootState) => {
 };
 
 export const loadFile = (basedstr: string) => {
-
   let plain = window.atob(basedstr);
 
   if (plain === null) return undefined;
@@ -40,25 +37,26 @@ export const loadFile = (basedstr: string) => {
   let oldobj = JSON.parse(plain);
 
   return oldobj;
-
-}
+};
 
 export const saveFile = (state: RootState) => {
   let dataString = JSON.stringify(state);
   let based = window.btoa(dataString);
-  download(`${APP_STORAGE_KEY}_export_${Date.now()}.txt`, based)
+  download(`${APP_STORAGE_KEY}_export_${Date.now()}.txt`, based);
 
   function download(filename: string, text: string) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
+    var element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+    );
+    element.setAttribute("download", filename);
 
-    element.style.display = 'none';
+    element.style.display = "none";
     document.body.appendChild(element);
 
     element.click();
 
     document.body.removeChild(element);
   }
-
-}
+};
