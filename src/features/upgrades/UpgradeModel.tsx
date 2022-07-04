@@ -1,5 +1,5 @@
 import {
-  mats,
+  ResourceKeys,
   MatStorage,
   PurchasableCost,
   UpgradeInterface,
@@ -24,7 +24,7 @@ export default class UpgradeModel {
     const growthType = this.upgrade.growth.type;
     return Object.keys(this.upgrade.resources).reduce<PurchasableCost>(
       (acc, key) => {
-        const res = key as mats;
+        const res = key as ResourceKeys;
         const cost = this.upgrade.resources[res];
         if (cost)
           acc[res] = MOIG.getGrowingCost(cost, growthRate, ammount, growthType);
@@ -38,7 +38,8 @@ export default class UpgradeModel {
   canPurchase = (resources: MatStorage): boolean => {
     const cost = this.getCost();
     return Object.keys(cost).every(
-      (key) => resources[key as mats] >= (cost[key as mats] || 0)
+      (key) =>
+        resources[key as ResourceKeys] >= (cost[key as ResourceKeys] || 0)
     );
   };
 }
