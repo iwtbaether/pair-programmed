@@ -2,6 +2,10 @@ import json from "./pigs.json";
 
 const materials = json.resources;
 type mats = keyof typeof materials;
+type UpgradeKeys = keyof typeof json.upgrades;
+type CraftKeys = keyof typeof json.crafts;
+
+
 type MatStorage = {
   [key in mats]: number;
 };
@@ -13,20 +17,25 @@ const createMaterialsStorage = (): MatStorage => {
   return obj as MatStorage;
 };
 
+type PurchasableCost = Partial<MatStorage>;
+
+
+
 interface Purchasable {
-  name: string;
-  resources: Partial<{ [key in mats]: number }>;
+  name: UpgradeKeys | CraftKeys;
+  resources: PurchasableCost;
 }
 
 interface UpgradeInterface extends Purchasable {
   gains: Partial<{ [key in mats]: { type: string; ammount: number } }>;
+  growth: {type: string, ammount: number};
 }
-const upgrades = json.upgrades as { [key: string]: UpgradeInterface };
+const upgrades = json.upgrades as { [key in UpgradeKeys]: UpgradeInterface };
 
 interface CraftInterface extends Purchasable {
   time: number;
 }
-const crafts = json.crafts as { [key: string]: CraftInterface };
+const crafts = json.crafts as { [key in CraftKeys]: CraftInterface };
 
-export type { mats, MatStorage };
+export type { mats, MatStorage, UpgradeInterface, PurchasableCost, UpgradeKeys, CraftKeys };
 export { createMaterialsStorage, upgrades, crafts };

@@ -49,6 +49,10 @@
       "resources": {
         "wood": 1
       },
+      "growth": {
+        "type":"linear",
+        "ammount":1.5
+      },
       "gains": {
         "wood": {
           "type": "linear",
@@ -61,10 +65,14 @@
       "resources": {
         "stone": 1
       },
+      "growth": {
+        "type":"flat",
+        "ammount":20
+      },
       "gains": {
         "stone": {
-          "type": "linear",
-          "ammount": 1.2
+          "type": "flat",
+          "ammount": 1
         }
       }
     }

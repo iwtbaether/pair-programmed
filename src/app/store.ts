@@ -8,6 +8,7 @@ import {
 import counterReducer from "../features/counter/counterSlice";
 import { materialsSlice } from "../features/resources/materialsSlice";
 import { statsSlice } from "../features/stats/statsSlice";
+import { upgradesSlice } from "../features/upgrades/upgradesSlice";
 
 import {
   loadFile,
@@ -22,6 +23,7 @@ const appReducer = combineReducers({
   counter: counterReducer,
   stats: statsSlice.reducer,
   materials: materialsSlice.reducer,
+  upgrades: upgradesSlice.reducer,
 });
 
 export const rootReducer = (

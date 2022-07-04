@@ -1,14 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
-import { createMaterialsStorage, mats, MatStorage } from "../../data/jsontypes";
-import data from "../../data/pigs.json";
+import { createSlice, PayloadAction} from "@reduxjs/toolkit";
+
+import type { RootState } from "../../app/store";
+import { mats, MatStorage , createMaterialsStorage } from "../../data/jsontypes";
 
 const initialState: MatStorage = createMaterialsStorage();
 
-export const materialsSlice = createSlice({
+const materialsSlice = createSlice({
   name: "materials",
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
+
+  // The `reducers` field lets us define reducers and generate associated action
   reducers: {
     gainResource: (
       state,
@@ -19,4 +20,8 @@ export const materialsSlice = createSlice({
   },
 });
 
-export const selectMaterials = (state: RootState) => state.materials;
+const selectMaterials = (state: RootState) => state.materials;
+
+export {
+  materialsSlice, selectMaterials
+}

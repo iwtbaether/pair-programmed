@@ -29,7 +29,9 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {"project": "./tsconfig.json"}
   },
   "browserslist": {
     "production": [
@@ -44,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-hardcore": "^24.8.1",
     "prettier": "2.7.1"
   }
 }

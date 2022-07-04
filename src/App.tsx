@@ -1,11 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import { SaveLoad } from "./features/SaveLoad/SaveLoad";
-import { selectTicks } from "./features/stats/statsSlice";
-import { ShowStats } from "./features/stats/ShowStats";
-import { ResourceList } from "./features/resources/ResourceList";
+import ShowStats from "./features/stats/ShowStats";
+import ResourceList from "./features/resources/ResourceList";
+import UpgradesList from "./features/upgrades/UpgradesList";
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
       <SaveLoad />
       <ShowStats />
       <ResourceList />
+      <UpgradesList/>
     </div>
   );
 }
