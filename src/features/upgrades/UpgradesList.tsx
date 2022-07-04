@@ -5,14 +5,14 @@ import { SingleUpgrade } from "./SingleUpgrade";
 import { selectAvailableUpgradeCount } from "./upgradesSlice";
 
 export default function UpgradesList() {
-  const upgCount = useAppSelector(selectAvailableUpgradeCount)
+  const upgCount = useAppSelector(selectAvailableUpgradeCount);
   const keys = Object.keys(upgrades) as UpgradeKeys[];
 
   return (
     <FeatureWrapper>
       <h1>Upgrades ({upgCount})</h1>
       {keys.map((key) => (
-        <SingleUpgrade upgradeKey={key} key={key}/>
+        <SingleUpgrade upgradeKey={key} key={key} />
       ))}
     </FeatureWrapper>
   );

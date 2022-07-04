@@ -26,8 +26,7 @@ const materialsSlice = createSlice({
   },
 });
 
-
 const selectMaterials = (state: RootState) => state.materials;
 
-export const {gainResource, loseResource} = materialsSlice.actions
+export const { gainResource, loseResource } = materialsSlice.actions;
 export { materialsSlice, selectMaterials };

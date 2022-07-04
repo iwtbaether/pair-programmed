@@ -1,11 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../../app/store";
-import {
-  mats,
-  UpgradeKeys,
-  upgrades,
-} from "../../data/jsontypes";
+import { mats, UpgradeKeys, upgrades } from "../../data/jsontypes";
 import UpgradeModel from "./UpgradeModel";
 
 export type UpgradeState = {
@@ -36,21 +32,23 @@ const upgradesSlice = createSlice({
 const selectUpgrades = (state: RootState) => state.upgrades;
 
 const selectAvailableUpgradeCount = (state: RootState) => {
-  return (Object.keys(state.upgrades) as UpgradeKeys[]).reduce((count, upgKey)=>{
-    const Upg = new UpgradeModel(upgrades[upgKey], state.upgrades[upgKey]).canPurchase(state.materials)
-    if (Upg) return count + 1;
-    else return count;
-  }, 0)
-}
-
+  return (Object.keys(state.upgrades) as UpgradeKeys[]).reduce(
+    (count, upgKey) => {
+      const Upg = new UpgradeModel(
+        upgrades[upgKey],
+        state.upgrades[upgKey]
+      ).canPurchase(state.materials);
+      if (Upg) return count + 1;
+      else return count;
+    },
+    0
+  );
+};
 
 export { upgradesSlice, selectUpgrades, selectAvailableUpgradeCount };
 export const { getUpgrade } = upgradesSlice.actions;
 
-
-
 const calculateGainsByResourceKey = (key: mats) => {
   for (const upgrade in upgrades) {
-
   }
-}
+};

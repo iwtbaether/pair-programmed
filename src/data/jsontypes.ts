@@ -5,8 +5,8 @@ type mats = keyof typeof materials;
 type UpgradeKeys = keyof typeof json.upgrades;
 type CraftKeys = keyof typeof json.crafts;
 
-type GrowthTypes = 'flat' | 'linear' | 'exponential';
-type GainTypes = 'flat' | 'increased' | 'more';
+type GrowthTypes = "flat" | "linear" | "exponential";
+type GainTypes = "flat" | "increased" | "more";
 
 type MatStorage = {
   [key in mats]: number;
@@ -45,6 +45,6 @@ export type {
   UpgradeKeys,
   CraftKeys,
   GrowthTypes,
-  GainTypes
+  GainTypes,
 };
 export { createMaterialsStorage, upgrades, crafts };
