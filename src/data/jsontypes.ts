@@ -5,7 +5,6 @@ type mats = keyof typeof materials;
 type UpgradeKeys = keyof typeof json.upgrades;
 type CraftKeys = keyof typeof json.crafts;
 
-
 type MatStorage = {
   [key in mats]: number;
 };
@@ -19,8 +18,6 @@ const createMaterialsStorage = (): MatStorage => {
 
 type PurchasableCost = Partial<MatStorage>;
 
-
-
 interface Purchasable {
   name: UpgradeKeys | CraftKeys;
   resources: PurchasableCost;
@@ -28,7 +25,7 @@ interface Purchasable {
 
 interface UpgradeInterface extends Purchasable {
   gains: Partial<{ [key in mats]: { type: string; ammount: number } }>;
-  growth: {type: string, ammount: number};
+  growth: { type: string; ammount: number };
 }
 const upgrades = json.upgrades as { [key in UpgradeKeys]: UpgradeInterface };
 
@@ -37,5 +34,12 @@ interface CraftInterface extends Purchasable {
 }
 const crafts = json.crafts as { [key in CraftKeys]: CraftInterface };
 
-export type { mats, MatStorage, UpgradeInterface, PurchasableCost, UpgradeKeys, CraftKeys };
+export type {
+  mats,
+  MatStorage,
+  UpgradeInterface,
+  PurchasableCost,
+  UpgradeKeys,
+  CraftKeys,
+};
 export { createMaterialsStorage, upgrades, crafts };

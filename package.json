@@ -31,7 +31,9 @@
       "react-app/jest"
     ],
     "parser": "@typescript-eslint/parser",
-    "parserOptions": {"project": "./tsconfig.json"}
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   },
   "browserslist": {
     "production": [

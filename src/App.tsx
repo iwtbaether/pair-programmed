@@ -13,7 +13,7 @@ function App() {
       <SaveLoad />
       <ShowStats />
       <ResourceList />
-      <UpgradesList/>
+      <UpgradesList />
     </div>
   );
 }

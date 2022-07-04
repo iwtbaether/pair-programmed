@@ -12,7 +12,12 @@ export default function ResourceList() {
     <FeatureWrapper>
       <h1>Materials</h1>
       {keys.map((key) => (
-        <p key={key} onClick={() => { dispatch(materialsSlice.actions.gainResource({ gain: 1, key })) }}>
+        <p
+          key={key}
+          onClick={() => {
+            dispatch(materialsSlice.actions.gainResource({ gain: 1, key }));
+          }}
+        >
           {key}: {resources[key]}
         </p>
       ))}

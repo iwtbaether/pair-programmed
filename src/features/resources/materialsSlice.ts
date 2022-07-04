@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../../app/store";
-import { mats, MatStorage , createMaterialsStorage } from "../../data/jsontypes";
+import { mats, MatStorage, createMaterialsStorage } from "../../data/jsontypes";
 
 const initialState: MatStorage = createMaterialsStorage();
 
@@ -22,6 +22,4 @@ const materialsSlice = createSlice({
 
 const selectMaterials = (state: RootState) => state.materials;
 
-export {
-  materialsSlice, selectMaterials
-}
+export { materialsSlice, selectMaterials };

@@ -50,8 +50,8 @@
         "wood": 1
       },
       "growth": {
-        "type":"linear",
-        "ammount":1.5
+        "type": "linear",
+        "ammount": 1.5
       },
       "gains": {
         "wood": {
@@ -66,8 +66,8 @@
         "stone": 1
       },
       "growth": {
-        "type":"flat",
-        "ammount":20
+        "type": "flat",
+        "ammount": 20
       },
       "gains": {
         "stone": {
