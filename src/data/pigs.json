@@ -1,0 +1,74 @@
+{
+    "colors": [
+        "#f44336",
+        "#e91e63",
+        "#9c27b0",
+        "#673ab7",
+        "#3f51b5",
+        "#2196f3",
+        "#03a9f4",
+        "#00bcd4",
+        "#009688",
+        "#4caf50",
+        "#8bc34a",
+        "#cddc39",
+        "#ffeb3b",
+        "#ffc107",
+        "#ff9800",
+        "#ff5722",
+        "#795548",
+        "#9e9e9e",
+        "#607d8b"
+    ],
+    "resources": {
+        "wood": {"name":"wood"},
+        "stone": {"name":"stone"},
+        "iron": {"name":"iron"}
+    },
+    "crafts": {
+        "axe": {
+            "name": "axe",
+            "resources": {
+                "wood": 1,
+                "stone": 1
+            },
+            "time": 1
+        },
+        "shovel": {
+
+            "name": "shovel",
+            "resources": {
+                "wood": 1,
+                "iron": 1
+            },
+            "time": 2
+        }
+    },
+    "upgrades": {
+        "plentifulWood": {
+            "name": "plentifulWood",
+            "resources": {
+                "wood": 1
+            },
+            "gains": {
+                "wood": {
+                    "type": "linear",
+                    "ammount": 1.2
+                }
+            }
+        },
+        "plentifulStone": {
+            "name": "plentifulStone",
+            "resources": {
+                "stone": 1
+            },
+            "gains": {
+                "stone": {
+                    "type": "linear",
+                    "ammount": 1.2
+                }
+            }
+        }
+    }
+
+}
