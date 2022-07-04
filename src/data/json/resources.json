@@ -1,0 +1,9 @@
+{
+  "wood": { "name": "wood", "type": "raw" },
+  "stone": { "name": "stone", "type": "raw" },
+  "iron": { "name": "iron", "type": "raw" },
+  "brick": { "name": "brick", "type": "crafted" },
+  "shovel": { "name": "shovel", "type": "crafted" },
+  "chisel": { "name": "chisel", "type": "crafted" },
+  "axe": { "name": "axe", "type": "crafted" }
+}
