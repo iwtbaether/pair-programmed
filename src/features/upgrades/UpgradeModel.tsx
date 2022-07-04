@@ -19,15 +19,15 @@ export default class UpgradeModel {
   };
 
   getCost = (): PurchasableCost => {
-    const growthRate = this.upgrade.growth.ammount;
-    const ammount = this.count;
+    const growthRate = this.upgrade.growth.amount;
+    const amount = this.count;
     const growthType = this.upgrade.growth.type;
     return Object.keys(this.upgrade.resources).reduce<PurchasableCost>(
       (acc, key) => {
         const res = key as ResourceKeys;
         const cost = this.upgrade.resources[res];
         if (cost)
-          acc[res] = MOIG.getGrowingCost(cost, growthRate, ammount, growthType);
+          acc[res] = MOIG.getGrowingCost(cost, growthRate, amount, growthType);
         else throw new Error(`Unknown cost key ${res}`);
         return acc;
       },

@@ -3,17 +3,17 @@ import { GainTypes, GrowthTypes } from "../data/jsontypes";
 interface GrowthParams {
   cost: number;
   growthRate: number;
-  ammount: number;
+  amount: number;
 }
 
 export default class MOIG {
   static getGrowingCost(
     cost: number,
     growthRate: number,
-    ammount: number,
+    amount: number,
     growthType: GrowthTypes
   ): number {
-    const params = { cost, growthRate, ammount };
+    const params = { cost, growthRate, amount };
     switch (growthType) {
       case "exponential":
         return this.exponentialGrowth(params);
@@ -32,7 +32,7 @@ export default class MOIG {
   static getGains(
     current: number,
     gainRate: number,
-    ammount: number,
+    amount: number,
     gainType: GainTypes
   ): number {
     switch (gainType) {
@@ -41,14 +41,14 @@ export default class MOIG {
         return this.flatGrowth({
           cost: current,
           growthRate: gainRate,
-          ammount,
+          amount,
         });
 
       case "more":
         return this.linearGrowth({
           cost: current,
           growthRate: gainRate,
-          ammount,
+          amount,
         });
 
       default:
@@ -57,19 +57,19 @@ export default class MOIG {
   }
 
   // Static function that calculates linear growth of a resource cost
-  static linearGrowth({ cost, growthRate, ammount }: GrowthParams): number {
-    return cost * (1 + growthRate * ammount);
+  static linearGrowth({ cost, growthRate, amount }: GrowthParams): number {
+    return cost * (1 + growthRate * amount);
   }
 
-  static flatGrowth({ cost, growthRate, ammount }: GrowthParams): number {
-    return cost + growthRate * ammount;
+  static flatGrowth({ cost, growthRate, amount }: GrowthParams): number {
+    return cost + growthRate * amount;
   }
 
   static exponentialGrowth({
     cost,
     growthRate,
-    ammount,
+    amount,
   }: GrowthParams): number {
-    return cost * Math.pow(1 + growthRate, ammount);
+    return cost * Math.pow(1 + growthRate, amount);
   }
 }

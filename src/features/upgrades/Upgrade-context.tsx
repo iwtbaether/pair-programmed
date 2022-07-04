@@ -48,13 +48,13 @@ export const UpgradeContext = React.createContext(createInitialGains());
 
 interface addGainsParams {
   current: Gains;
-  gainData: { type: GainTypes; ammount: number };
+  gainData: { type: GainTypes; amount: number };
   count: number;
 }
 const addGains = ({ current, gainData, count }: addGainsParams): Gains => {
   current[gainData.type] = MOIG.getGains(
     current[gainData.type],
-    gainData.ammount,
+    gainData.amount,
     count,
     gainData.type
   );
@@ -74,14 +74,14 @@ export function UpgradeProvider({ children }: UpgradeProviderProps) {
     const baseGains = createInitialGains();
     for (const upg in upgrades) {
       const upgrade = upgrades[upg as UpgradeKeys];
-      const ammount = upgradeCounts[upg as UpgradeKeys];
+      const amount = upgradeCounts[upg as UpgradeKeys];
       for (const res in upgrade.gains) {
         const gainData = upgrade.gains[res as ResourceKeys];
         if (gainData) {
           baseGains[res as ResourceKeys] = addGains({
             current: baseGains[res as ResourceKeys],
             gainData,
-            count: ammount,
+            count: amount,
           });
         }
       }

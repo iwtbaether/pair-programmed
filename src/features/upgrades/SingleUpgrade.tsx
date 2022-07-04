@@ -54,8 +54,8 @@ export const attemptUpgrade =
   (key: UpgradeKeys): AppThunk =>
   (dispatch, getState) => {
     const state = getState();
-    const currentAmmount = state.upgrades[key];
-    const Upgrade = new UpgradeModel(upgrades[key], currentAmmount);
+    const currentamount = state.upgrades[key];
+    const Upgrade = new UpgradeModel(upgrades[key], currentamount);
     const canBuy = Upgrade.canPurchase(state.materials);
     if (canBuy) {
       console.log(`Buying ${key}`);

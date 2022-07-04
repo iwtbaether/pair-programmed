@@ -25,9 +25,9 @@ interface Purchasable {
 
 interface UpgradeInterface extends Purchasable {
   gains: Partial<{
-    [key in ResourceKeys]: { type: GainTypes; ammount: number };
+    [key in ResourceKeys]: { type: GainTypes; amount: number };
   }>;
-  growth: { type: GrowthTypes; ammount: number };
+  growth: { type: GrowthTypes; amount: number };
 }
 
 interface CraftInterface extends Purchasable {
