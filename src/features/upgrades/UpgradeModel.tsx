@@ -4,6 +4,7 @@ import {
   PurchasableCost,
   UpgradeInterface,
 } from "../../data/jsontypes";
+import MOIG from "../../utils/MOIG";
 
 export default class UpgradeModel {
   count: number = 0;
@@ -18,10 +19,15 @@ export default class UpgradeModel {
   };
 
   getCost = (): PurchasableCost => {
+    const growthRate = this.upgrade.growth.ammount;
+    const ammount = this.count;
+    const growthType = this.upgrade.growth.type;
     return Object.keys(this.upgrade.resources).reduce<PurchasableCost>(
       (acc, key) => {
         const res = key as mats;
-        acc[res] = this.upgrade.resources[res] || 0 * (1 + this.count);
+        const cost = this.upgrade.resources[res]
+        if (cost) acc[res] = MOIG.getGrowingCost(cost, growthRate, ammount, growthType)
+        else throw new Error(`Unknown cost key ${res}`)
         return acc;
       },
       {} as Record<string, number>

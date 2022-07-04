@@ -5,6 +5,9 @@ type mats = keyof typeof materials;
 type UpgradeKeys = keyof typeof json.upgrades;
 type CraftKeys = keyof typeof json.crafts;
 
+type GrowthTypes = 'flat' | 'linear' | 'exponential';
+type GainTypes = 'flat' | 'increased' | 'more';
+
 type MatStorage = {
   [key in mats]: number;
 };
@@ -24,8 +27,8 @@ interface Purchasable {
 }
 
 interface UpgradeInterface extends Purchasable {
-  gains: Partial<{ [key in mats]: { type: string; ammount: number } }>;
-  growth: { type: string; ammount: number };
+  gains: Partial<{ [key in mats]: { type: GainTypes; ammount: number } }>;
+  growth: { type: GrowthTypes; ammount: number };
 }
 const upgrades = json.upgrades as { [key in UpgradeKeys]: UpgradeInterface };
 
@@ -41,5 +44,7 @@ export type {
   PurchasableCost,
   UpgradeKeys,
   CraftKeys,
+  GrowthTypes,
+  GainTypes
 };
 export { createMaterialsStorage, upgrades, crafts };

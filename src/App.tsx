@@ -9,7 +9,6 @@ import UpgradesList from "./features/upgrades/UpgradesList";
 function App() {
   return (
     <div className="App">
-      <Counter />
       <SaveLoad />
       <ShowStats />
       <ResourceList />

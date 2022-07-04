@@ -17,9 +17,17 @@ const materialsSlice = createSlice({
     ) => {
       state[action.payload.key] += action.payload.gain;
     },
+    loseResource: (
+      state,
+      action: PayloadAction<{ loss: number; key: mats }>
+    ) => {
+      state[action.payload.key] -= action.payload.loss;
+    },
   },
 });
 
+
 const selectMaterials = (state: RootState) => state.materials;
 
+export const {gainResource, loseResource} = materialsSlice.actions
 export { materialsSlice, selectMaterials };
