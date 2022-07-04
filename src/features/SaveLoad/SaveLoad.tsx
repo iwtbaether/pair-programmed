@@ -15,9 +15,6 @@ export function SaveLoad() {
   const saveFile = () => {
     dispatch({ type: "SAVE_FILE" });
   };
-  const loadFile = () => {
-    dispatch({ type: "LOAD_FILE" });
-  };
   return (
     <FeatureWrapper>
       <button onClick={saveState}>Save State</button>

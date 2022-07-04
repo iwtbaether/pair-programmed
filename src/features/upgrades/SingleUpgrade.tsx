@@ -16,7 +16,7 @@ export function SingleUpgrade({ upgradeKey }: SingleUpgradeProps) {
   const upgrade = upgrades[upgradeKey];
   const Upgrade = useMemo(
     () => new UpgradeModel(upgrade, count),
-    [upgradeKey, count]
+    [count, upgrade]
   );
   return (
     <div

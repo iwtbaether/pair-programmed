@@ -17,19 +17,15 @@ export default class MOIG {
     switch (growthType) {
       case "exponential":
         return this.exponentialGrowth(params);
-        break;
 
       case "flat":
         return this.flatGrowth(params);
-        break;
 
       case "linear":
         return this.linearGrowth(params);
-        break;
 
       default:
         throw new Error(`Unknown growt type ${growthType}`);
-        break;
     }
   }
 
@@ -47,7 +43,6 @@ export default class MOIG {
           growthRate: gainRate,
           ammount,
         });
-        break;
 
       case "more":
         return this.linearGrowth({
@@ -55,11 +50,9 @@ export default class MOIG {
           growthRate: gainRate,
           ammount,
         });
-        break;
 
       default:
         throw new Error(`Unexpected gainType ${gainType}`);
-        break;
     }
   }
 

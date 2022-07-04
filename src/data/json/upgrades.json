@@ -1,28 +1,4 @@
 {
-  "resources": {
-    "wood": { "name": "wood" },
-    "stone": { "name": "stone" },
-    "iron": { "name": "iron" }
-  },
-  "crafts": {
-    "axe": {
-      "name": "axe",
-      "resources": {
-        "wood": 1,
-        "stone": 1
-      },
-      "time": 1
-    },
-    "shovel": {
-      "name": "shovel",
-      "resources": {
-        "wood": 1,
-        "iron": 1
-      },
-      "time": 2
-    }
-  },
-  "upgrades": {
     "plentifulWood": {
       "name": "plentifulWood",
       "resources": {
@@ -56,4 +32,3 @@
       }
     }
   }
-}

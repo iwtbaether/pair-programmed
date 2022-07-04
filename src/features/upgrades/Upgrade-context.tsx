@@ -24,7 +24,7 @@ interface sumGainsParams {
   more: number;
 }
 const sumGains = ({ flat, increased, more }: sumGainsParams) => {
-  return flat * (1 + increased) * (1 + more);
+  return flat * (1 + increased) * (more);
 };
 
 const getInitialGains = (key: mats): Gains => ({

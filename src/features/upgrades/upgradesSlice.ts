@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../../app/store";
-import { mats, UpgradeKeys, upgrades } from "../../data/jsontypes";
+import { UpgradeKeys, upgrades } from "../../data/jsontypes";
 import UpgradeModel from "./UpgradeModel";
 
 export type UpgradeState = {
@@ -47,8 +47,3 @@ const selectAvailableUpgradeCount = (state: RootState) => {
 
 export { upgradesSlice, selectUpgrades, selectAvailableUpgradeCount };
 export const { getUpgrade } = upgradesSlice.actions;
-
-const calculateGainsByResourceKey = (key: mats) => {
-  for (const upgrade in upgrades) {
-  }
-};
