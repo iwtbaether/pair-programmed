@@ -3,7 +3,7 @@ import { useAppSelector } from "../../app/hooks";
 import {
   GainTypes,
   materials,
-  mats,
+  ResourceKeys,
   UpgradeKeys,
   upgrades,
 } from "../../data/jsontypes";
@@ -11,7 +11,7 @@ import MOIG from "../../utils/MOIG";
 import { selectUpgrades } from "./upgradesSlice";
 
 interface Gains {
-  key: mats;
+  key: ResourceKeys;
   flat: number;
   increased: number;
   more: number;
@@ -24,10 +24,10 @@ interface sumGainsParams {
   more: number;
 }
 const sumGains = ({ flat, increased, more }: sumGainsParams) => {
-  return flat * (1 + increased) * (1 + more);
+  return flat * (1 + increased) * more;
 };
 
-const getInitialGains = (key: mats): Gains => ({
+const getInitialGains = (key: ResourceKeys): Gains => ({
   key,
   flat: 1,
   increased: 0,
@@ -38,10 +38,10 @@ const getInitialGains = (key: mats): Gains => ({
 const createInitialGains = () => {
   const gains: Record<string, Gains> = {};
   for (const key in materials) {
-    gains[key] = getInitialGains(key as mats);
+    gains[key] = getInitialGains(key as ResourceKeys);
   }
 
-  return gains as Record<mats, Gains>;
+  return gains as Record<ResourceKeys, Gains>;
 };
 
 export const UpgradeContext = React.createContext(createInitialGains());
@@ -66,7 +66,7 @@ interface UpgradeProviderProps {
 }
 export function UpgradeProvider({ children }: UpgradeProviderProps) {
   const upgradeCounts = useAppSelector(selectUpgrades);
-  const [gains, setGains] = React.useState<Record<mats, Gains>>(
+  const [gains, setGains] = React.useState<Record<ResourceKeys, Gains>>(
     createInitialGains()
   );
 
@@ -76,10 +76,10 @@ export function UpgradeProvider({ children }: UpgradeProviderProps) {
       const upgrade = upgrades[upg as UpgradeKeys];
       const ammount = upgradeCounts[upg as UpgradeKeys];
       for (const res in upgrade.gains) {
-        const gainData = upgrade.gains[res as mats];
+        const gainData = upgrade.gains[res as ResourceKeys];
         if (gainData) {
-          baseGains[res as mats] = addGains({
-            current: baseGains[res as mats],
+          baseGains[res as ResourceKeys] = addGains({
+            current: baseGains[res as ResourceKeys],
             gainData,
             count: ammount,
           });
@@ -88,7 +88,9 @@ export function UpgradeProvider({ children }: UpgradeProviderProps) {
       console.log("Setting gains ----->", JSON.stringify(baseGains));
     }
     for (const gn in baseGains) {
-      baseGains[gn as mats].total = sumGains(baseGains[gn as mats]);
+      baseGains[gn as ResourceKeys].total = sumGains(
+        baseGains[gn as ResourceKeys]
+      );
     }
     setGains(baseGains);
   }, [upgradeCounts]);

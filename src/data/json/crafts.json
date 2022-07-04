@@ -1,0 +1,50 @@
+{
+  "axe": {
+    "name": "Craft Axe",
+    "resources": {
+      "wood": 1,
+      "stone": 1
+    },
+    "creates": {
+      "axe": 1
+    },
+    "time": 1,
+    "triggerUnlocks": ["axeBuilt"]
+  },
+  "shovel": {
+    "name": "Craft Shovel",
+    "resources": {
+      "wood": 1,
+      "iron": 1
+    },
+    "creates": {
+      "shovel": 1
+    },
+    "time": 2,
+    "triggerUnlocks": ["shovelBuilt"]
+  },
+  "chisel": {
+    "name": "Craft Chisel",
+    "resources": {
+      "wood": 1,
+      "iron": 1
+    },
+    "creates": {
+      "chisel": 1
+    },
+    "time": 2,
+    "triggerUnlocks": ["chiselBuilt"]
+  },
+  "brick": {
+    "name": "Craft Brick",
+    "resources": {
+      "stone": 1
+    },
+    "creates": {
+      "brick": 1
+    },
+    "time": 5,
+    "requireUnlocks": ["chiselBuilt"],
+    "triggerUnlocks": ["brickBuilt"]
+  }
+}

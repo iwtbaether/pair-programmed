@@ -1,22 +1,19 @@
-import json from "./pigs.json";
+import craftsJson from "./json/crafts.json";
+import resourcesJson from "./json/resources.json";
+import unlocksJson from "./json/unlocks.json";
+import upgradesJson from "./json/upgrades.json";
 
-const materials = json.resources;
-type mats = keyof typeof materials;
-type UpgradeKeys = keyof typeof json.upgrades;
-type CraftKeys = keyof typeof json.crafts;
+type ResourceKeys = keyof typeof resourcesJson;
+type UpgradeKeys = keyof typeof upgradesJson;
+type CraftKeys = keyof typeof craftsJson;
+type UnlocksKey = keyof typeof unlocksJson;
 
 type GrowthTypes = "flat" | "linear" | "exponential";
 type GainTypes = "flat" | "increased" | "more";
+type ResourceType = "raw" | "crafted";
 
 type MatStorage = {
-  [key in mats]: number;
-};
-const createMaterialsStorage = (): MatStorage => {
-  const obj: Record<string, any> = {};
-  for (const key in materials) {
-    obj[key] = 0;
-  }
-  return obj as MatStorage;
+  [key in ResourceKeys]: number;
 };
 
 type PurchasableCost = Partial<MatStorage>;
@@ -27,18 +24,31 @@ interface Purchasable {
 }
 
 interface UpgradeInterface extends Purchasable {
-  gains: Partial<{ [key in mats]: { type: GainTypes; ammount: number } }>;
+  gains: Partial<{
+    [key in ResourceKeys]: { type: GainTypes; ammount: number };
+  }>;
   growth: { type: GrowthTypes; ammount: number };
 }
-const upgrades = json.upgrades as { [key in UpgradeKeys]: UpgradeInterface };
 
 interface CraftInterface extends Purchasable {
   time: number;
 }
-const crafts = json.crafts as { [key in CraftKeys]: CraftInterface };
+
+interface ResourceInterface {
+  name: ResourceKeys;
+  type: ResourceType;
+}
+
+const materials = resourcesJson as { [key in ResourceKeys]: ResourceInterface };
+
+const upgrades = upgradesJson as { [key in UpgradeKeys]: UpgradeInterface };
+
+const crafts = craftsJson as { [key in CraftKeys]: CraftInterface };
+
+const unlocks = unlocksJson as { [key in UnlocksKey]: typeof unlocksJson[key] };
 
 export type {
-  mats,
+  ResourceKeys,
   MatStorage,
   UpgradeInterface,
   PurchasableCost,
@@ -46,5 +56,7 @@ export type {
   CraftKeys,
   GrowthTypes,
   GainTypes,
+  UnlocksKey,
+  ResourceInterface,
 };
-export { createMaterialsStorage, upgrades, crafts, materials };
+export { upgrades, crafts, materials, unlocks };
