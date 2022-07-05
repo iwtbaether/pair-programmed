@@ -5,6 +5,7 @@ import ShowStats from "./features/stats/ShowStats";
 import ResourceList from "./features/resources/ResourceList";
 import UpgradesList from "./features/upgrades/UpgradesList";
 import { UpgradeProvider } from "./features/upgrades/Upgrade-context";
+import { CraftsList } from "./features/crafts/CraftsList";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <UpgradeProvider>
         <SaveLoad />
         <ResourceList />
+        <CraftsList />
         <UpgradesList />
         <ShowStats />
       </UpgradeProvider>

@@ -32,6 +32,9 @@ interface UpgradeInterface extends Purchasable {
 
 interface CraftInterface extends Purchasable {
   time: number;
+  creates: Partial<MatStorage>;
+  requireUnlocks?: UnlocksKey[];
+  triggerUnlocks?: UnlocksKey[];
 }
 
 interface ResourceInterface {
@@ -58,5 +61,6 @@ export type {
   GainTypes,
   UnlocksKey,
   ResourceInterface,
+  CraftInterface
 };
 export { upgrades, crafts, materials, unlocks };

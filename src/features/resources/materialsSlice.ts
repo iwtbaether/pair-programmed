@@ -1,7 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../../app/store";
-import { materials, ResourceKeys, MatStorage } from "../../data/jsontypes";
+import {
+  materials,
+  ResourceKeys,
+  MatStorage,
+  PurchasableCost,
+} from "../../data/jsontypes";
 
 const createMaterialsStorage = (): MatStorage => {
   const obj: Record<string, any> = {};
@@ -31,10 +36,23 @@ const materialsSlice = createSlice({
     ) => {
       state[action.payload.key] -= action.payload.loss;
     },
+    removeResources: (state, action: PayloadAction<PurchasableCost>) => {
+      for (const key in action.payload) {
+        const resourceKey = key as ResourceKeys;
+        state[resourceKey] -= action.payload[resourceKey] || 0;
+      }
+    },
+    addResources: (state, action: PayloadAction<PurchasableCost>) => {
+      for (const key in action.payload) {
+        const resourceKey = key as ResourceKeys;
+        state[resourceKey] += action.payload[resourceKey] || 0;
+      }
+    },
   },
 });
 
 const selectMaterials = (state: RootState) => state.materials;
 
-export const { gainResource, loseResource } = materialsSlice.actions;
+export const { gainResource, loseResource, removeResources, addResources } =
+  materialsSlice.actions;
 export { materialsSlice, selectMaterials };

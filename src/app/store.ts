@@ -8,6 +8,7 @@ import {
 import counterReducer from "../features/counter/counterSlice";
 import { materialsSlice } from "../features/resources/materialsSlice";
 import { statsSlice } from "../features/stats/statsSlice";
+import { unlocksSlice } from "../features/unlocks/unlocksSlice";
 import { upgradesSlice } from "../features/upgrades/upgradesSlice";
 
 import {
@@ -24,6 +25,7 @@ const appReducer = combineReducers({
   stats: statsSlice.reducer,
   materials: materialsSlice.reducer,
   upgrades: upgradesSlice.reducer,
+  unlocks: unlocksSlice.reducer,
 });
 
 export const rootReducer = (
