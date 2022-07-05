@@ -2,15 +2,15 @@ import { useState } from "react";
 
 const upArrow = String.fromCharCode(9660);
 const downArrow = String.fromCharCode(9650);
-function useHideArrow() {
+type UseHideArrowReturnType = {
+  arrow: string;
+  hide: boolean;
+  toggleHide: () => void;
+};
+function useHideArrow(): UseHideArrowReturnType {
   const [hide, setHide] = useState(false);
-
-  const toggleHide = () => {
-    setHide(!hide);
-  };
-
   const arrow = hide ? upArrow : downArrow;
-
+  const toggleHide = () => setHide(!hide);
   return { arrow, hide, toggleHide };
 }
 

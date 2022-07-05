@@ -1,0 +1,40 @@
+{
+  "gatherWood": {
+    "name": "Gather Wood",
+    "description": "Gather wood from the ground",
+    "time": 1,
+    "reward": {
+      "wood": 1
+    }
+  },
+  "gatherStone": {
+    "name": "Gather Stone",
+    "description": "Gather stone from the ground",
+    "time": 1,
+    "reward": {
+      "stone": 1
+    }
+  },
+  "chopTrees": {
+    "name": "Chop Trees",
+    "description": "Chop down trees with an axe, requires an axe",
+    "time": 1,
+    "reward": {
+      "wood": 1
+    },
+    "requires": {
+      "axe": 1
+    }
+  },
+  "digIron": {
+    "name": "Dig Iron",
+    "description": "Dig iron from the ground, requires a shovel",
+    "time": 1,
+    "reward": {
+      "iron": 1
+    },
+    "requires": {
+      "shovel": 1
+    }
+  }
+}
