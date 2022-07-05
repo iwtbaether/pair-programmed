@@ -1,21 +1,37 @@
-
-.PositiveBox {
-    background-color: #00ff00;
-    border: 1px solid #00ff00;
-    width: 100%;
+.gain {
+  background-color: #00ff00;
+  border: 1px solid #00ff00;
+  display: flex;
+  justify-content: space-between;
 }
 
-.NegativeBox {
-    background-color: #ff0000;
-    border: 1px solid #ff0000;
-    width: 100%;
+.loss {
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* a light grey background and border */
+.neutral {
+  background-color: #f0f0f0;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ResourcePair {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.ResourceDisplay {
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-direction: column;
+  display: flex;
 }

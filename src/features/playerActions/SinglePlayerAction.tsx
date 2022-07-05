@@ -1,7 +1,10 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { AppThunk } from "../../app/store";
 import { DisplayNumber } from "../../components/DisplayNumber";
-import { ResourceDisplay } from "../../components/ResourceDisplay";
+import {
+  ResourceDisplay,
+  ResourcePair,
+} from "../../components/ResourceDisplay";
 import { PlayerActionKeys, playerActions } from "../../data/jsontypes";
 import { useHideArrow } from "../../hooks/useHideArrow";
 import { addResourcesWithMulti } from "../resources/materialsSlice";
@@ -77,7 +80,7 @@ const SinglePlayerAction = ({ actionKey }: SinglePlayerActionProps) => {
       </div>
       <div>{thisAction.description}</div>
       <div>
-        <ResourceDisplay resources={thisAction.creates} type="gain" />
+        <ResourcePair gain={thisAction.creates} neutral={thisAction.requires} />
       </div>
       <div>
         <div>

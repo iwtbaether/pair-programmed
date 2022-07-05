@@ -65,11 +65,7 @@ export default class MOIG {
     return cost + growthRate * amount;
   }
 
-  static exponentialGrowth({
-    cost,
-    growthRate,
-    amount,
-  }: GrowthParams): number {
+  static exponentialGrowth({ cost, growthRate, amount }: GrowthParams): number {
     return cost * Math.pow(1 + growthRate, amount);
   }
 }

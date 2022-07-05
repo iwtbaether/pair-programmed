@@ -14,14 +14,15 @@
     "time": 10000,
     "skill": "mining",
     "creates": {
-      "stone": 1
+      "stone": 1,
+      "iron": 0.1
     }
   },
   "chopTrees": {
     "name": "Chop Trees",
     "description": "Chop down trees with an axe, requires an axe",
     "skill": "woodcutting",
-    "time": 10000,
+    "time": 2000,
     "creates": {
       "wood": 1
     },
