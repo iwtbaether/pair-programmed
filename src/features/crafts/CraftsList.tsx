@@ -8,7 +8,7 @@ import styles from "../upgrades/upgrades.module.css";
 import { FeatureWrapper } from "../../components/FeatureWrapper";
 import { useHideArrow } from "../../hooks/useHideArrow";
 
-function CraftsList() {
+function CraftsList(): JSX.Element {
   const resources = useAppSelector(selectMaterials);
   const { hide, toggleHide, arrow } = useHideArrow();
   const keys = Object.keys(crafts) as CraftKeys[];

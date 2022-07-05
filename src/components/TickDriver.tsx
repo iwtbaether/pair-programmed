@@ -1,9 +1,6 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import {
-  selectLastTickTime,
-  tickAction,
-} from "../features/playerActions/playerActionsSlice";
+import { useAppDispatch } from "../app/hooks";
+import { tickAction } from "../features/playerActions/playerActionsSlice";
 
 // A react component that dispatchs a tick action every second.
 // This component has children that are passed to it.

@@ -1,6 +1,8 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { DisplayNumber } from "../../components/DisplayNumber";
 import { DisplayTime } from "../../components/DisplayTime";
+import { ResourcePair } from "../../components/ResourceDisplay";
 import { CraftKeys, crafts, MatStorage } from "../../data/jsontypes";
 import {
   selectCurrentAction,
@@ -52,11 +54,12 @@ const SingleCraft = ({ craftKey, resources }: SingleCraftProps) => {
 
   return (
     <div className={styles.UpgradeBox}>
+      <div>{name}</div>
       <div>
-        {name}
         {!inProgress && (
           <button disabled={!canBuy} onClick={onClick}>
-            Start Crafting <DisplayTime time={craft.time} />
+            Start Crafting{" "}
+            <DisplayNumber displayAs="time">{craft.time}</DisplayNumber>
           </button>
         )}
         {inProgress && !done && (
@@ -64,8 +67,7 @@ const SingleCraft = ({ craftKey, resources }: SingleCraftProps) => {
         )}
         {inProgress && done && <button onClick={finish}>Get</button>}
       </div>
-      <div>Gives: {JSON.stringify(creates)}</div>
-      <div>Costs: {JSON.stringify(required)}</div>
+      <ResourcePair gain={creates} loss={required} />
     </div>
   );
 };

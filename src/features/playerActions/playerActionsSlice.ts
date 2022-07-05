@@ -1,4 +1,4 @@
-import { AsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { AppThunk, RootState } from "../../app/store";
 import { PlayerActionKeys, CraftKeys } from "../../data/jsontypes";
@@ -33,9 +33,25 @@ const playerActionsSlice = createSlice({
       state.spentTime = 0;
       state.lastTickTime = Date.now();
     },
+    beginCraftAction: (state, action: PayloadAction<{ key: CraftKeys }>) => {
+      state.currentAction = action.payload.key;
+      state.actionType = "craft";
+      state.spentTime = 0;
+      state.lastTickTime = Date.now();
+    },
+    beginPlayerAction: (state, action: PayloadAction<PlayerActionKeys>) => {
+      state.currentAction = action.payload;
+      state.actionType = "action";
+      state.spentTime = 0;
+      state.lastTickTime = Date.now();
+    },
     clearCurrentAction: (state) => {
       state.currentAction = null;
       state.actionType = null;
+      state.spentTime = 0;
+      state.lastTickTime = Date.now();
+    },
+    resetCurrentAction: (state) => {
       state.spentTime = 0;
       state.lastTickTime = Date.now();
     },
@@ -49,8 +65,14 @@ const playerActionsSlice = createSlice({
   },
 });
 
-export const { setCurrentAction, clearCurrentAction, addTime } =
-  playerActionsSlice.actions;
+export const {
+  setCurrentAction,
+  clearCurrentAction,
+  addTime,
+  beginCraftAction,
+  beginPlayerAction,
+  resetCurrentAction,
+} = playerActionsSlice.actions;
 export const selectCurrentAction = (state: RootState) =>
   state.playerActions.currentAction;
 export const selectActionType = (state: RootState) =>

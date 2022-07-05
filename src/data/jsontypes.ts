@@ -4,7 +4,6 @@ import unlocksJson from "./json/unlocks.json";
 import upgradesJson from "./json/upgrades.json";
 import playerActionsJson from "./json/playerActions.json";
 import skillsJson from "./json/skills.json";
-import { AppThunk } from "../app/store";
 
 type ResourceKeys = keyof typeof resourcesJson;
 type UpgradeKeys = keyof typeof upgradesJson;
@@ -46,6 +45,29 @@ interface ResourceInterface {
   name: ResourceKeys;
   type: ResourceType;
 }
+/**
+ * PlayerActionInterface example
+ *  {
+    "name": "Dig Iron",
+    "description": "Dig iron from the ground, requires a shovel",
+    "skill": "mining",
+    "time": 10000,
+    "creates": {
+      "iron": 1
+    },
+    "requires": {
+      "shovel": 1
+    }
+  }
+ */
+type PlayerActionInterface = {
+  name: string;
+  description: string;
+  skill: SkillKeys;
+  time: number;
+  creates: Partial<MatStorage>;
+  requires?: Partial<MatStorage>;
+};
 
 const materials = resourcesJson as { [key in ResourceKeys]: ResourceInterface };
 
@@ -55,7 +77,7 @@ const crafts = craftsJson as { [key in CraftKeys]: CraftInterface };
 
 const unlocks = unlocksJson as { [key in UnlocksKey]: typeof unlocksJson[key] };
 const playerActions = playerActionsJson as {
-  [key in PlayerActionKeys]: typeof playerActionsJson[key];
+  [key in PlayerActionKeys]: PlayerActionInterface;
 };
 const skills = skillsJson as { [key in SkillKeys]: typeof skillsJson[key] };
 

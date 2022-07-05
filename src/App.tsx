@@ -7,17 +7,22 @@ import UpgradesList from "./features/upgrades/UpgradesList";
 import { UpgradeProvider } from "./features/upgrades/Upgrade-context";
 import { CraftsList } from "./features/crafts/CraftsList";
 import { TickDriver } from "./components/TickDriver";
+import { ActionsList } from "./features/playerActions/ActionsList";
+import { SimpleRouter } from "./components/SimpleRouter";
 
 function App() {
   return (
     <div className="App">
       <TickDriver>
         <UpgradeProvider>
-          <SaveLoad />
-          <ResourceList />
-          <CraftsList />
-          <UpgradesList />
-          <ShowStats />
+          <SimpleRouter>
+            <SaveLoad />
+            <ResourceList />
+            <ActionsList />
+            <CraftsList />
+            <UpgradesList />
+            <ShowStats />
+          </SimpleRouter>
         </UpgradeProvider>
       </TickDriver>
     </div>

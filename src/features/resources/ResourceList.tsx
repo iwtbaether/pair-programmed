@@ -11,6 +11,8 @@ export default function ResourceList() {
   const gains = useContext(UpgradeContext);
   const resources = useAppSelector(selectMaterials);
   const keys = Object.keys(resources) as ResourceKeys[];
+  console.log("what are keys?", keys);
+
   return (
     <FeatureWrapper>
       <h1>Materials</h1>

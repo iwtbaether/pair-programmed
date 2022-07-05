@@ -23,7 +23,6 @@ export function SingleUpgrade({ upgradeKey }: SingleUpgradeProps) {
   return (
     <div
       key={upgradeKey}
-      style={{ border: "1px solid black" }}
       className={styles.UpgradeBox}
       onClick={() => {
         attemptUpgrade(upgradeKey);

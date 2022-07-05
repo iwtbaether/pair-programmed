@@ -1,0 +1,21 @@
+
+.PositiveBox {
+    background-color: #00ff00;
+    border: 1px solid #00ff00;
+    width: 100%;
+}
+
+.NegativeBox {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+    width: 100%;
+}
+
+.ResourcePair {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

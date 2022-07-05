@@ -48,11 +48,27 @@ const materialsSlice = createSlice({
         state[resourceKey] += action.payload[resourceKey] || 0;
       }
     },
+    addResourcesWithMulti: (
+      state,
+      action: PayloadAction<{ base: PurchasableCost; multi: number }>
+    ) => {
+      console.log(action.payload);
+      for (const key in action.payload.base) {
+        const resourceKey = key as ResourceKeys;
+        state[resourceKey] +=
+          (action.payload.base[resourceKey] || 0) * action.payload.multi;
+      }
+    },
   },
 });
 
 const selectMaterials = (state: RootState) => state.materials;
 
-export const { gainResource, loseResource, removeResources, addResources } =
-  materialsSlice.actions;
+export const {
+  gainResource,
+  loseResource,
+  removeResources,
+  addResources,
+  addResourcesWithMulti,
+} = materialsSlice.actions;
 export { materialsSlice, selectMaterials };
