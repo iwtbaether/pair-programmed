@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pair Programmed",
+  "name": "An idle game generated from JSON",
   "icons": [
     {
       "src": "favicon.ico",
