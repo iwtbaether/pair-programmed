@@ -3,7 +3,8 @@
     "name": "Gather Wood",
     "description": "Gather wood from the ground",
     "time": 1,
-    "reward": {
+    "skill": "woodcutting",
+    "creates": {
       "wood": 1
     }
   },
@@ -11,15 +12,17 @@
     "name": "Gather Stone",
     "description": "Gather stone from the ground",
     "time": 1,
-    "reward": {
+    "skill": "mining",
+    "creates": {
       "stone": 1
     }
   },
   "chopTrees": {
     "name": "Chop Trees",
     "description": "Chop down trees with an axe, requires an axe",
+    "skill": "woodcutting",
     "time": 1,
-    "reward": {
+    "creates": {
       "wood": 1
     },
     "requires": {
@@ -29,8 +32,9 @@
   "digIron": {
     "name": "Dig Iron",
     "description": "Dig iron from the ground, requires a shovel",
+    "skill": "mining",
     "time": 1,
-    "reward": {
+    "creates": {
       "iron": 1
     },
     "requires": {

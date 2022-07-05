@@ -6,6 +6,7 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
+import { playerActionsSlice } from "../features/playerActions/playerActionsSlice";
 import { materialsSlice } from "../features/resources/materialsSlice";
 import { statsSlice } from "../features/stats/statsSlice";
 import { unlocksSlice } from "../features/unlocks/unlocksSlice";
@@ -26,6 +27,7 @@ const appReducer = combineReducers({
   materials: materialsSlice.reducer,
   upgrades: upgradesSlice.reducer,
   unlocks: unlocksSlice.reducer,
+  playerActions: playerActionsSlice.reducer,
 });
 
 export const rootReducer = (

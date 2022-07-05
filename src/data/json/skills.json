@@ -1,0 +1,11 @@
+{
+  "mining": {
+    "name": "Mining"
+  },
+  "woodcutting": {
+    "name": "Woodcutting"
+  },
+  "crafting": {
+    "name": "Crafting"
+  }
+}
