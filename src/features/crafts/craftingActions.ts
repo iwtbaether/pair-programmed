@@ -35,7 +35,7 @@ export const finishCraft =
   (dispatch, getState) => {
     const craft = crafts[key];
     dispatch(addResources(craft.creates));
-    dispatch(clearCurrentAction);
+    dispatch(clearCurrentAction());
   };
 
 //

@@ -5,7 +5,6 @@ import {
   combineReducers,
   PayloadAction,
 } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
 import { playerActionsSlice } from "../features/playerActions/playerActionsSlice";
 import { materialsSlice } from "../features/resources/materialsSlice";
 import { statsSlice } from "../features/stats/statsSlice";
@@ -22,7 +21,6 @@ import {
 var merge = require("lodash.merge");
 
 const appReducer = combineReducers({
-  counter: counterReducer,
   stats: statsSlice.reducer,
   materials: materialsSlice.reducer,
   upgrades: upgradesSlice.reducer,
