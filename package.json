@@ -1,6 +1,7 @@
 {
   "name": "pair-programmed",
   "version": "0.1.0",
+  "homepage": "https://iwtbaether.github.io/pair-programmed",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "eslint-config-hardcore": "^24.8.1",
+    "gh-pages": "^4.0.0",
     "prettier": "2.7.1"
   }
 }
