@@ -5,6 +5,10 @@ import {
   MatStorage,
   ResourceKeys,
 } from "../../data/jsontypes";
+import {
+  clearCurrentAction,
+  setCurrentAction,
+} from "../playerActions/playerActionsSlice";
 import { addResources, removeResources } from "../resources/materialsSlice";
 import { unlockUnlocks } from "../unlocks/unlocksSlice";
 
@@ -15,13 +19,23 @@ export const attemptCraft =
     const { materials } = getState();
     const craft = crafts[key];
     if (haveResourcesToCraft(craft.resources, materials)) {
+      // setCurrentAction to key
+      dispatch(setCurrentAction({ key, type: "craft" }));
       dispatch(removeResources(craft.resources));
-      dispatch(addResources(craft.creates));
-      if (craft.triggerUnlocks) dispatch(unlockUnlocks(craft.triggerUnlocks));
+      // dispatch(addResources(craft.creates));
+      // if (craft.triggerUnlocks) dispatch(unlockUnlocks(craft.triggerUnlocks));
       // Todo: Impletement actions in slice
       // dispatch(craftStarted(key));
       // dispatch(craftFinished(key));
     }
+  };
+
+export const finishCraft =
+  (key: CraftKeys): AppThunk =>
+  (dispatch, getState) => {
+    const craft = crafts[key];
+    dispatch(addResources(craft.creates));
+    dispatch(clearCurrentAction);
   };
 
 //

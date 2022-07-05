@@ -2,7 +2,7 @@
   "gatherWood": {
     "name": "Gather Wood",
     "description": "Gather wood from the ground",
-    "time": 1,
+    "time": 10000,
     "skill": "woodcutting",
     "creates": {
       "wood": 1
@@ -11,7 +11,7 @@
   "gatherStone": {
     "name": "Gather Stone",
     "description": "Gather stone from the ground",
-    "time": 1,
+    "time": 10000,
     "skill": "mining",
     "creates": {
       "stone": 1
@@ -21,7 +21,7 @@
     "name": "Chop Trees",
     "description": "Chop down trees with an axe, requires an axe",
     "skill": "woodcutting",
-    "time": 1,
+    "time": 10000,
     "creates": {
       "wood": 1
     },
@@ -33,7 +33,7 @@
     "name": "Dig Iron",
     "description": "Dig iron from the ground, requires a shovel",
     "skill": "mining",
-    "time": 1,
+    "time": 10000,
     "creates": {
       "iron": 1
     },

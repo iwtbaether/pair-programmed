@@ -70,7 +70,7 @@ export const tickAction = (): AppThunk => (dispatch, getState) => {
   const currentAction = selectCurrentAction(state);
   const actionType = selectActionType(state);
   console.log("tickAction", currentAction, actionType, delta);
-  // if (currentAction && actionType) {
-  //   dispatch(addTime({ time: delta, timestamp: tickTime }));
-  // }
+  if (currentAction && actionType) {
+    dispatch(addTime({ time: delta, timestamp: tickTime }));
+  }
 };
